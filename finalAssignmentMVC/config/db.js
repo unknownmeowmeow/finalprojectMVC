@@ -3,13 +3,16 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'password',
+    password: '',
     database: 'mvc_product'
 });
+
 db.connect((err) => {
     if (err) {
-        throw err;
+        console.error('Error connecting to MySQL:', err.message);
+        return;
     }
-    console.log('MySQL Connected...');
+    console.log('Connected to the MySQL database.');
 });
+
 module.exports = db;
